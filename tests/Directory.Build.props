@@ -1,0 +1,14 @@
+<Project>
+
+  <PropertyGroup>
+    <IsTrains>true</IsTrains>
+  </PropertyGroup>
+
+  <Import Project="..\Directory.Build.props" />
+
+  <PropertyGroup>
+    <!-- makes tests easier -->
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+</Project>
