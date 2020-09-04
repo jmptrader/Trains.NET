@@ -13,7 +13,6 @@ namespace Trains.NET.Rendering
         public int Columns => _columns;
         public int Rows => _rows;
 
-
         public int MaxGridSize => _columns * this.CellSize;
         public int CellSize => (int)(40 * this.GameScale);
 
@@ -69,6 +68,11 @@ namespace Trains.NET.Rendering
             return (x, y, onScreen);
         }
 
+        public (int, int) WorldPixelsToViewPortPixels(int x, int y)
+        {
+            return ((int)(x * this.GameScale) + this.ViewPortX, (int)(y * this.GameScale) + this.ViewPortY);
+        }
+
         public (int, int) WorldPixelsToCoords(int x, int y)
         {
             return (x / this.CellSize, y / this.CellSize);
@@ -83,13 +87,13 @@ namespace Trains.NET.Rendering
         {
             return new PixelMapper()
             {
-                 ViewPortX = this.ViewPortX,
-                 ViewPortY = this.ViewPortY,
-                 ViewPortHeight = this.ViewPortHeight,
-                 ViewPortWidth = this.ViewPortWidth,
-                 GameScale = this.GameScale,
-                 _columns = _columns,
-                 _rows = _rows
+                ViewPortX = this.ViewPortX,
+                ViewPortY = this.ViewPortY,
+                ViewPortHeight = this.ViewPortHeight,
+                ViewPortWidth = this.ViewPortWidth,
+                GameScale = this.GameScale,
+                _columns = _columns,
+                _rows = _rows
             };
         }
 

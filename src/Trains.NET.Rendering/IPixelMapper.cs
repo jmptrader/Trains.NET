@@ -26,5 +26,6 @@ namespace Trains.NET.Rendering
         IPixelMapper Snapshot();
         void Initialize(int v1, int v2);
         void AdjustGameScale(float delta);
+        (int X, int Y) WorldPixelsToViewPortPixels(int x, int y);
     }
 }
